@@ -5,6 +5,7 @@ struct node{
 	struct node* next;
 	
 };
+// creating linked list
 struct node* createcll(){
 	struct node* head,*newnode,*tail;
 	int choice;
@@ -30,11 +31,17 @@ struct node* createcll(){
 	while(choice==1);
 	return tail;
 }
-//int main(){
-//	struct node*tail;
-//	tail = createcll();
-//	traverse(tail);	
-//}
+// traversing linkedlist
+traverse(struct node* tail){
+	struct node* ptr;
+	ptr = tail->next;
+	do{
+		printf("The elemetns are %d\n",ptr->data);
+		ptr = ptr->next;
+	}while(ptr!= tail->next);
+}
+
+// inserting node at beginning
 struct node* insertatbeg(struct node*tail)
 {
 	struct node* newnode;
@@ -57,15 +64,8 @@ struct node* insertatbeg(struct node*tail)
 	}
 	return tail;
 }
-traverse(struct node* tail){
-	struct node* ptr;
-	ptr = tail->next;
-	do{
-		printf("The elemetns are %d\n",ptr->data);
-		ptr = ptr->next;
-	}while(ptr!= tail->next);
-}
 
+// inserting at end
 struct node* insertatend(struct node* tail){
 	struct node* newnode;
 	newnode = (struct node*)malloc(sizeof(struct node));
@@ -84,6 +84,7 @@ struct node* insertatend(struct node* tail){
 	}
 	return tail;
 }
+// inserting at certain index
 struct node* insertatbetween(struct node* tail,int index){
 	struct node *ptr = (struct node *)malloc(sizeof(struct node));
 	struct node*ptr1;
